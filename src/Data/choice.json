@@ -1,0 +1,14 @@
+[
+  {
+    "choice_id": 1,
+    "choice_name": "Farmer"
+  },
+  {
+    "choice_id": 2,
+    "choice_name": "Seller"
+  },
+  {
+    "choice_id": 3,
+    "choice_name": "Both farmer and seller"
+  }
+]

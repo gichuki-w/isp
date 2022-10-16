@@ -1,10 +1,10 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import '../Styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { FaIdCardAlt, FaUserAlt, FaLongArrowAltLeft } from "react-icons/fa";
 import axios from 'axios';
 
-import reducer from '../Reducers/User';
+import userReducer from '../Reducers/User';
 
 const Login = () => {
 
@@ -14,7 +14,8 @@ const Login = () => {
   const [pass, setpass] = useState('');
   const navigate = useNavigate();
 
-  const [user, dispatch] = useReducer(reducer, { user: '', role: '', message: '', reqmessage: '' });
+  //const [user, dispatch] = useReducer(reducer, { user: {}, redirect: '', message: '' });
+  const { user, dispatch } = userReducer
 
 
   const handleSubmit = async (e) => {
@@ -29,25 +30,27 @@ const Login = () => {
     }
     try {
       setloading(true)
-      const person = await axios.post(process.env.localServerLogin, { email: email, password: pass }, {
+      const person = await axios.post(process.env.REACT_APP_LOGIN, { email: email, password: pass }, {
         withCredentials: true
       })
       //console.log(person)
       if (person.statusText === 'OK') {
-        //console.log('Everything went well, save responce to reducer')
-        const { message, user, role } = person.data
+
+        console.log(person.data)
+        const { message, redirect, user } = person.data
+
         dispatch({
           type: 'DATAFROMAPP',
           payload: {
             user: user,
-            role: role,
+            redirect: redirect,
             message: message
           }
         })
 
-        //console.log(person.data)
+        //console.log(user)
         setloading(false)
-        navigate('/')
+        //navigate('/')
 
       }
       setloading(false)
@@ -59,7 +62,7 @@ const Login = () => {
     }
   }
 
-
+  console.log(user)
 
   return (
     <div className='Login'>
@@ -97,7 +100,7 @@ const Login = () => {
               value={email}
               onChange={(e) => {
                 setemail(e.target.value)
-                seterr(null)
+                seterr('')
                 setloading(false)
               }}
             />
@@ -112,7 +115,7 @@ const Login = () => {
               value={pass}
               onChange={(e) => {
                 setpass(e.target.value)
-                seterr(null)
+                seterr('')
                 setloading(false)
               }}
             />

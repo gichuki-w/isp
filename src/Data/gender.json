@@ -1,0 +1,14 @@
+[
+  {
+    "gender_id": 1,
+    "gender_name": "Femaile"
+  },
+  {
+    "gender_id": 2,
+    "gender_name": "Male"
+  },
+  {
+    "gender_id": 3,
+    "gender_name": "Rather Not Say"
+  }
+]

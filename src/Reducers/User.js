@@ -1,18 +1,27 @@
-import { useReducer } from "react";
+//import { useReducer } from "react";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "DATAFROMAPP":
-      return {
-        user: action.payload.user,
-        role: action.payload.role,
-        message: action.payload.message,
-      }
+//const reducer = (state, action) => {
+//  switch (action.type) {
+//    case "DATAFROMAPP":
+//      return {
+//        user: action.payload.user,
+//        redirect: action.payload.redirect,
+//        message: action.payload.message,
+//      }
 
-    default:
-      return state;
-  }
-};
+//    default:
+//      return state;
+//  }
+//};
 
 
-export default reducer
+//const userReducer = () => {
+//  const [user, dispatch] = useReducer(reducer, { user: {}, redirect: '', message: '' });
+//  return [user, dispatch]
+//}
+
+
+
+
+
+//export default userReducer

@@ -1,0 +1,52 @@
+.Loading1 {
+  width: 100%;
+  background-color: transparent;
+  flex-grow: 1;
+  color: grey;
+  overflow: hidden;
+  position: relative;
+  padding-top: 1em;
+}
+.Loading1::before {
+  content: '';
+  background-color: rgba(0, 255, 42, 0.925);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  /*transform: rotate(25deg);*/
+  opacity: 1;
+  border-radius: 9px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  animation: loader1;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes loader1 {
+  from {
+    background-color: rgb(0, 255, 13);
+    transform: translateX(-120px);
+  }
+  25% {
+    background-color: rgb(0, 255, 13);
+    width: 100px;
+  }
+  50% {
+    background-color: rgb(1, 167, 10);
+    width: 160px;
+  }
+  75% {
+    background-color: rgb(0, 146, 7);
+    width: 100px;
+  }
+  100% {
+    transform: translateX(1000px);
+    background-color: rgb(90, 245, 0);
+  }
+}

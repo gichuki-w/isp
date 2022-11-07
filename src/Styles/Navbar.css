@@ -1,113 +1,151 @@
 .navbar {
-  background-color: rgb(21, 104, 0);
   width: 100%;
-  height: 8em;
+  height: 130px;
   display: flex;
   flex-direction: column;
   position: relative;
-  justify-content: space-between;
+  background-color: transparent;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(134, 134, 134, 0.068);
+  z-index: 3;
+  padding-bottom: 0.5em;
+  box-shadow: rgba(0, 122, 6, 0.096) 0px 10px 20px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 .upper {
   position: relative;
   width: 100%;
-  height: 55%;
+  max-width: 1200px;
+  height: 60%;
   display: flex;
   align-items: center;
   background-color: transparent;
-  /*justify-content: space-between;*/
+  justify-content: space-between;
 }
-.logo {
-  width: 30%;
-  height: 100%;
+.lower {
+  height: 40%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: transparent;
-  position: relative;
+  margin-left: 20px;
 }
-.lg {
-  position: absolute;
-  width: 4em;
-  height: 4em;
-  background-color: rgba(146, 0, 146, 0.226);
-  left: 3em;
-  clip-path: polygon(0 0, 100% 0, 100% 78%, 60% 100%, 31% 79%, 0 100%);
+.equator {
+  width: 100%;
+  height: 1px;
+  background: rgb(179, 179, 179);
+  background: linear-gradient(
+    90deg,
+    rgba(143, 143, 143, 0.171) 0%,
+    rgba(168, 168, 168, 0.342) 35%,
+    rgb(209, 209, 209) 100%
+  );
+  background: transparent;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 128, 0, 0.1);
+  position: relative;
+  margin-left: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo a {
+  background-color: transparent;
+  color: black;
 }
 .nav {
-  width: 70%;
   height: 100%;
   background-color: transparent;
-  padding-right: 2em;
+  padding-right: 1em;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-grow: 1;
+}
+.user {
+  margin-left: 1em;
+  background-color: transparent;
+  color: rgb(0, 28, 88);
+  font-size: 0.9rem;
 }
 .NavItem1 {
+  height: 50px;
+  min-width: 85px;
   font-size: 0.9rem;
-  height: 3em;
-  min-width: 6em;
-  max-width: 15em;
-  margin-right: 0.7em;
+  margin-right: 1em;
   background-color: transparent;
+  color: green;
+  /*border: 1px solid green;*/
   position: relative;
-  border-radius: 6px;
-  color: rgb(255, 255, 255);
+  border-radius: 5px;
   text-decoration: none;
+  text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: 0.3em;
   padding-right: 0.3em;
+  transition: 200ms;
+}
+.NavItem1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  opacity: 0;
+  background-color: rgba(4, 165, 4, 0.1);
+  z-index: -1;
 }
 .NavItem1:hover {
-  background-color: rgba(160, 160, 160, 0.226);
+  color: green;
+  scale: 1.05;
+  transition: 200ms;
+  /*border: 1px solid rgba(4, 165, 4, 0.1);*/
 }
-.NavItem2 {
-  height: 3em;
-  min-width: 6em;
-  max-width: 15em;
-  margin-right: 0.7em;
-  background-color: transparent;
-  position: relative;
-  border-radius: 6px;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  border: 1px solid white;
+.NavItem1:hover::before {
+  transform: translateX(0);
+  opacity: 1;
 }
-.NavItem2:hover {
-  background-color: rgba(161, 161, 161, 0.226);
-}
+
 .NavItem3 {
   font-size: 0.8rem;
-
-  height: 3em;
-  min-width: 6em;
-  max-width: 15em;
-  margin-right: 0.7em;
+  height: 40px;
+  min-width: 20px;
+  max-width: 200px;
+  width: auto;
+  margin-right: 1em;
   background-color: transparent;
   position: relative;
-  border-radius: 6px;
+  border-radius: 5px;
   color: rgb(25, 109, 0);
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  transition: 100ms;
 }
 .NavItem3:hover {
-  background-color: rgba(160, 160, 160, 0.226);
+  background-color: rgba(4, 165, 4, 0.1);
+  scale: 1.05;
 }
 
-.lower {
-  height: 45%;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 2rem;
-  align-items: center;
-  box-shadow: -1px 3px 5px -2px rgba(0, 0, 0, 0.75);
-  background-color: rgb(241, 241, 241);
+.NavItem1.active {
+  background-color: rgba(4, 165, 4, 0.1);
+  border: rgba(4, 165, 4, 0.1);
+}
+.NavItem3.active {
+  background-color: rgba(4, 165, 4, 0.1);
 }

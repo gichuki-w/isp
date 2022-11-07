@@ -3,89 +3,95 @@ import { Route, Routes } from 'react-router-dom'
 
 import NotFound from './NotFound'
 import Market from './Market'
-import Navbar from '../Components/Navbar'
 import Home from './Home'
 
-
-import useAuth from '../Hooks/useAuth'
-import RequireAuth from '../Components/RequireAuth'
-import OneRNP from './OneRNP'
-import Anyny from './Anyny'
 import Footer from '../Components/Footer'
 
-//import reducer from '../Reducers/User'
+import RequireAuth from '../Components/RequireAuth'
+import AuthFarmer from '../Components/AuthFarmer'
+import AuthAdmin from '../Components/AuthAdmin'
+import AuthCustomer from '../Components/AuthCustomer'
+import OneRNP from './OneRNP'
+import Anyny from './Anyny'
+import Login from './Login'
+import Register from './Register'
+import Logout from './Logout'
 
 
 
-const Container = () => {
+const Container = ({ constStyle }) => {
 
 
-
-  const { role, auth } = useAuth()
-
-  console.log(role, auth)
   return (
-    <div className='Container'>
-      <Navbar />
+    <div className='Container' style={constStyle}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/app/'>
 
-          {/*Public Routes*/}
           <Route
             path='login'
-          //element={<Login />}
+            element={<Login />}
           />
           <Route
             path='signup'
-          //element={<Register />}
+            element={<Register />}
           />
-          <Route
-            path='market'
-            element={<Market />}
-          />
-          <Route
-            path='makerequest'
-            element={< Anyny />}
-          />
-          <Route
-            path='onernp'
-            element={< OneRNP />}
-          />
+
+
+          <Route element={<RequireAuth />}>
+            <Route element={<AuthCustomer />}>
+
+              <Route
+                path='market'
+                element={<Market />}
+              />
+
+              <Route
+                path='makerequest'
+                element={< Anyny />}
+              />
+              <Route
+                path='profile'
+              //element={< />}
+              />
+              <Route
+                path='onernp'
+                element={< OneRNP />}
+              />
+              <Route
+                path='cart'
+              //element={< />}
+              />
+            </Route>
+
+            <Route element={<AuthFarmer />}>
+              <Route
+                path='postrnp'
+                element={<p>Post rnp</p>}
+              />
+              <Route
+                path='editrnp'
+              //element={< />}
+              />
+              <Route
+                path='farmerrnp'
+              //element={< />}
+              />
+            </Route>
+
+          </Route>
           <Route
             path='unauthorized'
           //element={< />}
           />
-
-
-          {/*Protected routes*/}
-          <Route element={<RequireAuth />}>
-            <Route
-              path='profile'
-            //element={< />}
-            />
-            <Route
-              path='postrnp'
-            //element={}
-            />
-            <Route
-              path='editrnp'
-            //element={< />}
-            />
-            <Route
-              path='specificuserrnp'
-            //element={< />}
-            />
-            <Route
-              path='cart'
-            //element={< />}
-            />
-            <Route
-              path='*'
-              element={<NotFound />}
-            />
-          </Route>
-          {/* catch all */}
+          <Route
+            path='logout'
+            element={<Logout />}
+          />
+          <Route
+            path='*'
+            element={<NotFound />}
+          />
         </Route>
         <Route
           path='*'

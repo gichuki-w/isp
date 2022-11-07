@@ -1,0 +1,118 @@
+.Login {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.login-form {
+  width: 50%;
+  min-width: 200px;
+  min-height: 500px;
+  background-color: transparent;
+  margin-top: 100px;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 5px;
+  align-items: center;
+  box-shadow: rgba(10, 58, 6, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  /*border: 1px solid green;*/
+}
+.uili {
+  width: 100%;
+  height: 50%;
+  background: url('./login1.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  border-radius: 3px;
+  position: relative;
+}
+.post-form-login {
+  background-color: transparent;
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 3px;
+}
+.msg {
+  color: rgba(255, 0, 0, 0.575);
+  padding-bottom: 1em;
+  padding-top: 1em;
+  background: transparent;
+  font-size: 0.8rem;
+  /*margin-top: auto;*/
+}
+.l-t-signup {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: green;
+}
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet 
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1200px) and (max-width: 5000px) {
+  .login-form {
+    width: 40%;
+    /*height: 50%;*/
+  }
+}
+@media all and (min-width: 1000px) and (max-width: 12000px) {
+  .login-form {
+    width: 40%;
+    /*height: 40%;*/
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1000px) {
+  .login-form {
+    width: 50%;
+    /*height: 50%;*/
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .login-form {
+    width: 70%;
+    /*height: 50%;*/
+  }
+}
+
+@media all and (max-width: 480px) {
+  .Login {
+    /*height: 60%;*/
+    width: 100%;
+  }
+  .login-form {
+    width: 100%;
+    margin-top: 0px;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 0;
+    align-items: center;
+    box-shadow: rgba(10, 58, 6, 0.13) 0px 10px 20px,
+      rgba(0, 0, 0, 0.2) 0px 4px 4px;
+  }
+  .post-form {
+    width: 90%;
+    display: flex;
+    min-height: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 3px;
+  }
+}

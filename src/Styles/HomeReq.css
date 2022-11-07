@@ -1,0 +1,94 @@
+.HomeReq {
+  width: 100%;
+  min-height: 12-x;
+  background-color: rgba(179, 179, 179, 0.308);
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.requestcard {
+  width: 17em;
+  height: 5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0.5em;
+  background-color: white;
+  /*transform: translateY(-50px);*/
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.requestcard:hover {
+  box-shadow: rgba(48, 119, 0, 0.541) 0px 13px 27px -5px,
+    rgba(0, 104, 40, 0.486) 0px 8px 16px -8px;
+  scale: 1.02;
+}
+.requestcard::before {
+  content: '';
+  box-shadow: rgba(48, 119, 0, 0.541) 0px 13px 27px -5px,
+    rgba(0, 104, 40, 0.486) 0px 8px 16px -8px;
+}
+.r_picture {
+  width: 100%;
+  height: 6em;
+  background-color: rgb(221, 221, 221);
+}
+.details {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.r_country {
+  position: absolute;
+  /*background: url('ke2.png');*/
+  background-position: center;
+  background-size: contain;
+  padding: 0;
+
+  width: 1.3em;
+  height: 1.3em;
+  background-color: transparent;
+  top: -10px;
+  left: 80%;
+  border-radius: 25%;
+}
+.el {
+  width: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.r_weight {
+}
+
+.r_timeline {
+}
+.r_name {
+  font-size: 1.2rem;
+  background-color: transparent;
+  font-weight: 500;
+  color: rgb(0, 99, 0);
+}
+.r_county {
+  height: 20px;
+  font-size: 0.7rem;
+  padding-left: 1em;
+}
+.r_cat {
+  /*height: 20px;
+  background-color: transparent;
+  color: rgb(0, 72, 167);
+  text-align: right;
+  font-size: 1rem;
+  padding-right: 1em;*/
+}
+.r_b_desc {
+  height: auto;
+  font-size: 0.7rem;
+  background-color: transparent;
+  padding-left: 1em;
+}

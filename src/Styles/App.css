@@ -1,10 +1,11 @@
 .App {
-  width: auto;
-  height: auto;
-  /*border: 1px solid greenyellow;*/
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .Container {
   position: relative;
-  height: auto;
-  width: auto;
+
+  overflow-x: hidden;
+  background-color: rgb(253, 253, 253);
 }

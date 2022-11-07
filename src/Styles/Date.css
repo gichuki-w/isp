@@ -1,0 +1,15 @@
+.tarehe {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.tarehe input {
+  background-color: rgba(200, 255, 200, 0.548);
+  padding: 0.7em;
+  color: green;
+}
+.tarehe input:hover {
+  background-color: rgba(200, 255, 200, 0.87);
+}

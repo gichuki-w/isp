@@ -1,67 +1,6 @@
 .Home {
   width: 100%;
-  height: auto;
-}
-.header {
-  width: 100%;
-  height: 13em;
-  background-color: rgba(214, 214, 214, 0.288);
-  /*padding-left: 3em;*/
-  padding-top: 1em;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-#search {
-  border-bottom: 1px solid green;
-  padding: 0.6em;
-  margin-top: 1rem;
-  font-size: 1rem;
-  width: 70%;
-  background-color: rgba(182, 182, 182, 0.411);
-}
-#search:hover {
-  box-shadow: 4px 4px 10px -2px rgba(0, 0, 0, 0.75);
-}
-#search:focus {
-  outline: 1px solid green;
-}
-.sForm {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-}
-.label {
-  position: absolute;
-  transform: translateX(-99999999px);
-}
-
-.hh1 {
-  color: green;
-  background-color: transparent;
-}
-
-.homePoducts {
-  width: 90%;
-  padding-left: 3em;
-  padding-right: 3em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(-60px);
-  background-color: transparent;
-}
-
-.homePoducts2 {
-  width: 90%;
-  padding-left: 3em;
-  padding-right: 3em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
 }

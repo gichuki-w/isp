@@ -4,21 +4,20 @@ import useAuth from "../Hooks/useAuth";
 
 
 
-const RequireAuth = () => {
+const AuthCustomer = () => {
   const { state } = useAuth()
-  const { auth } = state
-
+  const { role } = state
   const location = useLocation();
 
   return (
-    auth
+    role === 'Buyer'
       ? <Outlet />
       : <Navigate to='login' state={{ from: location }} replace />
   )
 }
 
 
-export default RequireAuth
+export default AuthCustomer
 
 
 

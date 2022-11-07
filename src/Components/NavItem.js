@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const NavItem = ({ name, css, pepe }) => {
   return (
     //<button className={css}>
-    <NavLink className={css} to={pepe}>
+    <NavLink className={css} to={pepe} end>
       {name}
     </NavLink>
     //</button>

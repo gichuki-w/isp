@@ -1,0 +1,199 @@
+.HomeProd {
+  /*width: 100%;*/
+  min-height: 200px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  /*justify-content: flex-start;*/
+  justify-content: space-evenly;
+  background-color: transparent;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.postcard {
+  width: 170px;
+  min-height: 12em;
+  padding-bottom: 0.7em;
+  margin: 0.5em;
+  background-color: white;
+  /*box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,*/
+  /*rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;*/
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.postcard:hover {
+  box-shadow: rgba(10, 43, 18, 0.2) 0px 0px 16px;
+  scale: 1.015;
+}
+
+.p_picture {
+  width: 170px;
+  height: 135px;
+  background-color: rgba(228, 228, 228, 0.774);
+  border-radius: 6px;
+  position: relative;
+}
+.p_picture img {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  font-size: 0.8rem;
+}
+.details {
+  margin: 0;
+  padding: 0.4em;
+  width: 100%;
+  height: auto;
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.p_country {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: transparent;
+  top: -10px;
+  left: 80%;
+  border-radius: 25%;
+}
+.ke {
+  background-image: url('ke.png');
+}
+.ug {
+  background-image: url('ug.png');
+}
+.tz {
+  background-image: url('tz.png');
+}
+
+.el {
+  margin-bottom: 6px;
+}
+.p_name {
+  font-size: 1rem;
+  background-color: transparent;
+  font-weight: 500;
+  color: rgb(0, 68, 27);
+  padding-top: 0.4em;
+  padding-bottom: 0.3em;
+  padding-left: 0.4em;
+  border-radius: 4px;
+  text-align: left;
+}
+.p_name:hover {
+  background-color: rgba(0, 156, 0, 0.2);
+  cursor: pointer;
+}
+
+.p_county {
+  height: 15px;
+  font-size: 0.7rem;
+  padding-left: 0.4em;
+  display: flex;
+  align-items: center;
+}
+
+.loc {
+  background-position: center;
+  background-size: contain;
+  padding: 0;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: transparent;
+  border-radius: 25%;
+  background-image: url('location.png');
+}
+.p_b_desc {
+  height: auto;
+  font-size: 0.8rem;
+  background-color: transparent;
+  padding-left: 0.5em;
+}
+
+.c3pio {
+  display: flex;
+  padding-left: 0.4em;
+  justify-content: space-between;
+  height: 40px;
+  margin-right: 6px;
+}
+.split {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: center;
+}
+
+.p_price {
+  height: 100%;
+  width: 80px;
+  background-color: rgba(218, 218, 218, 0.459);
+  color: rgb(7, 82, 0);
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-right: 0.2em;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.cartbtn {
+  height: 100%;
+  background-color: rgb(218, 218, 218, 0.45);
+  flex-grow: 1;
+  margin-right: 0.2em;
+  width: 80px;
+  color: rgba(0, 0, 0, 0.678);
+  background-image: url('cart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+  transition: ease-in-out;
+  opacity: 0.9;
+}
+.bei {
+  position: absolute;
+  top: 0;
+  left: -33px;
+  width: 45px;
+  height: 50px;
+  background-color: rgba(0, 128, 0, 0.204);
+  transform: rotate(90deg);
+  color: green;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 0;
+}
+.cartbtn:hover {
+  background-color: rgba(0, 156, 0, 0.2);
+  cursor: pointer;
+  opacity: 1;
+}
+.err {
+  color: rgba(255, 0, 0, 0.623);
+  font-size: 1rem;
+}
+.err button {
+  color: rgba(122, 122, 122);
+  font-size: 1rem;
+}
+.err button:hover {
+  color: green;
+  cursor: pointer;
+}
+.err button:focus {
+  color: green;
+  outline: 0;
+  border: 1px solid green;
+}

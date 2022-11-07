@@ -4,21 +4,20 @@ import useAuth from "../Hooks/useAuth";
 
 
 
-const RequireAuth = () => {
+const AuthAdmin = () => {
   const { state } = useAuth()
-  const { auth } = state
-
+  const { role } = state
   const location = useLocation();
 
   return (
-    auth
+    role === 'Admin'
       ? <Outlet />
       : <Navigate to='login' state={{ from: location }} replace />
   )
 }
 
 
-export default RequireAuth
+export default AuthAdmin
 
 
 

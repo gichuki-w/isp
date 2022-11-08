@@ -3,16 +3,16 @@ import '../Styles/Navbar.css'
 import NavItem from './NavItem'
 //import { useEffect } from 'react';
 import useAuth from "../Hooks/useAuth";
-//import { useContext } from 'react';
-//import sizeContext from '../Context/sizeContext';
+import { useContext } from 'react';
+import sizeContext from '../Context/sizeContext';
 import { NavLink } from 'react-router-dom';
 
 
 
-const Navbar = () => {
+const Navbar = ({ setshowPNav }) => {
 
   const { state } = useAuth()
-  //const wS = useContext(sizeContext)
+  const wS = useContext(sizeContext)
   const { auth, role, f_name, l_name } = state
 
 
@@ -21,111 +21,147 @@ const Navbar = () => {
     if (auth) {
       if (role === 'Buyer') {
         return (
-          <div className="nav">
-            <NavItem
-              name='Logout'
-              css='NavItem1'
-              pepe='/app/logout' />
-          </div>
+          <>
+            <NavItem name='Home' css='item' pepe='/' />
+            <NavItem name='Market' css='item' pepe='/app/market' />
+            <NavItem name='Categories' css='item' pepe='/app/categories' />
+            <NavItem name='My Orders' css='item' pepe='/app/orders' />
+            <NavItem name='Cart' css='item cart' pepe='/app/cart' />
+          </>
         )
       } else if (role === 'Seller') {
         return (
-          <div className="nav">
-            <NavItem
-              name='Logout'
-              css='NavItem1'
-              pepe='/app/logout' />
-            <NavItem
-              name='Orders'
-              css='NavItem2'
-              pepe='/app/orders' />
-          </div>
+          <>
+            <NavItem name='Home' css='item' pepe='/' />
+            <NavItem name='Sell Item' css='item' pepe='/app/f/post' />
+            <NavItem name='My Products' css='item' pepe='/app/f/myrnp' />
+            <NavItem name='Orders' css='item' pepe='/app/f/orders' />
+          </>
         )
       } else {
         return (
-          <div className="nav">
-            <NavItem
-              name='Login'
-              css='NavItem1'
-              pepe='/app/login' />
-            <NavItem
-              name='Sign up'
-              css='NavItem1'
-              pepe='/app/signup' />
-          </div>
+          < >
+            <NavItem name='Home' css='item' pepe='/' />
+          </>
         )
       }
     } else {
       return (
-        <div className="nav">
+        <>
+          <NavItem name='Home' css='item' pepe='/' />
+        </>
+      )
+    }
+  }
+
+
+
+  //const lowerChecker = (auth, role) => {
+  //  if (auth) {
+  //    if (role === 'Buyer') {
+  //      return (
+
+  //      )
+  //    } else if (role === 'Seller') {
+  //      return (
+
+  //      )
+  //    } else {
+  //      return (
+
+  //      )
+  //    }
+  //  } else {
+  //    return (
+
+  //    )
+  //  }
+  //}
+
+  const actionsChecker = (auth, role) => {
+    if (auth) {
+      return (
+        < NavItem
+          name='Sign Out'
+          css='item3'
+          pepe='/app/logout' />
+      )
+    } else {
+      return (
+        <>
           <NavItem
             name='Login'
-            css='NavItem1'
+            css='item2'
             pepe='/app/login' />
           <NavItem
-            name='Sign up'
-            css='NavItem1'
+            name='Sign in'
+            css='item2'
             pepe='/app/signup' />
-        </div>
-      )
-    }
-  }
-  const lowerChecker = (auth, role) => {
-    if (auth) {
-      if (role === 'Buyer') {
-        return (
-          <div className="lower">
-            <NavItem name='Home' css='NavItem3' pepe='/' />
-            <NavItem name='Market' css='NavItem3' pepe='/app/market' />
-            <NavItem name='My Orders' css='NavItem3' pepe='/app/orders' />
-            <NavItem name='Cart' css='NavItem3' pepe='/app/cart' />
-            <NavItem name='Make Request' css='NavItem3' pepe='/app/makerequest' />
-            <NavItem name='Profile' css='NavItem3' pepe='/app/profile' />
-          </div>
-        )
-      } else if (role === 'Seller') {
-        return (
-          <div className="lower">
-            <NavItem name='Home' css='NavItem3' pepe='/f' />
-            <NavItem name='Post Product' css='NavItem3' pepe='/app/f/postrnp' />
-            <NavItem name='My Products' css='NavItem3' pepe='/app/f/myrnp' />
-            <NavItem name='Profile' css='NavItem3' pepe='/app/f/profile' />
-            <NavItem name='Orders' css='NavItem3' pepe='/app/f/orders' />
-
-          </div>
-        )
-      } else {
-        return (
-          <div className="lower">
-            <NavItem name='Home' css='NavItem3' pepe='/' />
-          </div>
-        )
-      }
-    } else {
-      return (
-        <div className="lower">
-          <NavItem name='Home' css='NavItem3' pepe='/' />
-        </div>
+        </>
       )
     }
   }
 
 
+  const PhoneNav = () => {
 
-  return (
-    <nav className='navbar' >
-      <div className="upper">
-        <div className="logo">
-          <NavLink to={'/'}></NavLink>
+    return (
+      <div className="p_nav">
+        <div className="hambuger" onClick={() => setshowPNav(true)}>
+
         </div>
-        {f_name && auth && role
-          ? <p className='user'>{f_name} {l_name}</p>
-          : ''}
-        {upperChecker(auth, role)}
+        <div className="mininav">
+          {auth
+            ? < NavItem
+              name='Sign Out'
+              css='item3'
+              pepe='/app/logout' />
+            : <>
+              <NavItem
+                name='Login'
+                css='item2'
+                pepe='/app/login' />
+              <NavItem
+                name='Sign in'
+                css='item2'
+                pepe='/app/signup' />
+            </>
+          }
+        </div>
       </div>
-      <div className="equator"></div>
-      {lowerChecker(auth, role)}
-    </nav>
+    )
+  }
+  return (
+    wS.width < 600
+      ? <PhoneNav />
+      : <nav className='navbar' >
+
+        <div className="upper">
+
+          <div className="logo">
+            <NavLink to={'/'}></NavLink>
+          </div>
+
+          <nav className="adbcp">
+            {upperChecker(auth, role)}
+          </nav>
+
+          {f_name && auth && role
+            ? <>
+              <NavLink className='user' to={'/app/profile'}>{f_name} {l_name}</NavLink>
+            </>
+            : ''}
+
+          <nav className="actions">
+            {actionsChecker(auth, role)}
+          </nav>
+
+        </div>
+        <div className="equator"></div>
+        <div className="lower">
+          {/*{lowerChecker(auth, role)}*/}
+        </div>
+      </nav>
   )
 }
 

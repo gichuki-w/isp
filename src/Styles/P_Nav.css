@@ -1,0 +1,63 @@
+.Kasimu {
+  /*background-color: transparent;*/
+  background-color: rgba(63, 63, 63, 0.541);
+  width: 150px;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+}
+.x {
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.x:hover {
+  background-color: rgb(230, 230, 230);
+  color: red;
+}
+
+.P-item {
+  min-height: 40px;
+  color: black;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  background-color: white;
+}
+.P-item:hover {
+  color: green;
+}
+.P-item.active {
+  color: green;
+  border-left: 1px solid green;
+}
+.cred {
+  color: black;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  font-size: 0.9rem;
+}
+.cred a {
+  text-decoration: none;
+}
+.cred a:hover {
+  color: green;
+}
+.lg {
+  height: 60px;
+  background-color: white;
+
+  width: 60px;
+  background: url('./user4.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 0.6em;
+}

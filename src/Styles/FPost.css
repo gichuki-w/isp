@@ -1,13 +1,12 @@
-.Register {
+.FPost {
   width: 100%;
   flex-grow: 1;
   display: flex;
   position: relative;
   justify-content: center;
-
   background-color: rgb(199, 199, 199);
 }
-.regform {
+.f-post-form {
   width: 60%;
   min-width: 320px;
   min-height: 500px;
@@ -22,63 +21,7 @@
   box-shadow: rgba(10, 58, 6, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-.uiui {
-  width: 40%;
-  margin: 10px;
-  margin-right: 5px;
-  background-color: rgba(0, 0, 0, 0.253);
-  background: url('./user4.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 3px;
-  position: relative;
-}
-.post-form {
-  background-color: transparent;
-  width: 60%;
-  margin: 10px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 3px;
-  flex-direction: column;
-}
-.locale2 {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
 
-.msg-err {
-  color: rgba(226, 0, 0, 0.856);
-  background: transparent;
-  font-size: 0.8rem;
-  margin: 0.5em;
-  text-align: center;
-}
-.msg-suc {
-  color: rgba(19, 17, 160, 0.733);
-  background: transparent;
-  font-size: 0.8rem;
-  margin: 0.5em;
-  text-align: center;
-}
-.l-t-signup {
-  font-size: 0.8rem;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  text-decoration: none;
-  color: green;
-}
-.l-t-home {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  text-decoration: none;
-  color: green;
-}
 /*------------------------------------------
   Responsive Grid Media Queries - 1280, 1024, 768, 480
    1280-1024   - desktop (default grid)
@@ -89,28 +32,28 @@
 @media all and (min-width: 1200px) and (max-width: 5000px) {
 }
 @media all and (min-width: 1000px) and (max-width: 12000px) {
-  .regform {
+  .f-post-form {
     width: 50%;
     /*height: 40%;*/
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 1000px) {
-  .regform {
+  .f-post-form {
     width: 60%;
     /*height: 50%;*/
   }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-  .regform {
+  .f-post-form {
     width: 80%;
     /*height: 50%;*/
   }
 }
 
 @media all and (max-width: 480px) {
-  .regform {
+  .f-post-form {
     width: 100%;
     margin-top: 0px;
     max-height: 700px;
@@ -121,17 +64,12 @@
     box-shadow: rgba(10, 58, 6, 0.13) 0px 10px 20px,
       rgba(0, 0, 0, 0.2) 0px 4px 4px;
   }
-  .uiui {
-    width: 100%;
-    height: 150px;
-  }
-  .post-form {
+  /*.post-form {
     width: 90%;
     display: flex;
     min-height: 500px;
     flex-direction: column;
     justify-content: space-around;
-    /*align-items: center;*/
     border-radius: 10px;
-  }
+  }*/
 }

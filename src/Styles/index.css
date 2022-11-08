@@ -34,6 +34,9 @@ ol {
 }
 li {
 }
+img {
+  max-width: 100%;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 4px;

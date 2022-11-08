@@ -36,7 +36,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (email.length > 3 && password.length > 3 && email.includes('@')) {
+    if (email.length > 3 && password.length > 3 && email.includes('@') && date && f_name && password === confirmPassword) {
       axios.defaults.withCredentials = true
       try {
         setloading(true)
@@ -69,7 +69,7 @@ const Register = () => {
         seterr('Please try Again')
       }
     } else {
-      seterr('Check your Email and passsword')
+      seterr('Invalid Credentials')
     }
   }
 

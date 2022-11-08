@@ -25,7 +25,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (email.length > 3 && password.length > 3 && email.includes('@')) {
+    if (email.length > 3 && password.length >= 3 && email.includes('@')) {
       axios.defaults.withCredentials = true
       try {
         setloading(true)
@@ -44,9 +44,35 @@ const Login = () => {
               dispatch({ type: 'login', payload: res.data.user })
 
               const ex = new Date() + (1000 * 60 * 2)
-              const cook = `user=${JSON.stringify(res.data.user)}; sameSite=1; expires=${ex}`
+              const cook = `mkuu=${JSON.stringify(res.data.user)}; sameSite=1; expires=${ex} path=/`
 
+              //console.log(cook)
               document.cookie = cook
+              document.cookie = cook
+
+              //const getCookie = (cname) => {
+              //  const name = cname + "=";
+
+              //  const decodedCookie = decodeURIComponent(document.cookie);
+
+              //  const ca = decodedCookie.split(';');
+
+              //  console.log(ca)
+
+              //  //for (let i = 0; i < ca.length; i++) {
+
+              //  //  let c = ca[i];
+
+              //  //  while (c.charAt(0) === ' ') {
+              //  //    c = c.substring(1);
+              //  //  }
+              //  //  if (c.indexOf(name) === 0) {
+              //  //    return c.substring(name.length, c.length);
+              //  //  }
+              //  //}
+              //  return "";
+              //}
+
               //localStorage.setItem('user', JSON.stringify(res.data.user[0]));
               navigate('/', { replace: true })
             }
@@ -66,7 +92,7 @@ const Login = () => {
         seterr('Please try Again')
       }
     } else {
-      seterr('Check your Email and passsword')
+      seterr('Invalid Email or passsword')
     }
   }
 

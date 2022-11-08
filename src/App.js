@@ -1,11 +1,12 @@
 import Container from './Pages/Container';
 import './Styles/App.css';
 
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import authContext from './Context/authContext'
 import WinSize from './Hooks/useSize';
 import sizeContext from './Context/sizeContext';
 import Navbar from './Components/Navbar';
+import PNav from './Components/P_Nav';
 const userInit = {
   user_id: 0,
   f_name: 'John',
@@ -13,7 +14,9 @@ const userInit = {
   ts: 0,
   picture: '',
   country: 0,
-  role: 'Customer',
+  role: '',
+  auth: false,
+
 }
 
 function App() {
@@ -52,7 +55,7 @@ function App() {
 
   const [state, dispatch] = useReducer(userReducer, userInit)
 
-
+  const [showPNav, setshowPNav] = useState(false);
 
 
   useEffect(() => {
@@ -77,7 +80,7 @@ function App() {
       return "";
     }
 
-    const cook = getCookie('user')
+    const cook = getCookie('mkuu')
 
     if (cook.length >= 20) {
       dispatch({ type: 'login', payload: JSON.parse(cook) })
@@ -89,31 +92,33 @@ function App() {
     };
   }, []);
 
-  //const calcContWidth = () => {
-  //  if (wS.width >= 1500) {
-  //    return 1500
-  //  } else if (wS.width < 1500 && wS.width > 600) {
-  //    return (wS.width * 0.9)
-  //  } else if (wS.width < 700) {
-  //    return wS.width
-  //  }
-  //}
-  const appStingo = {
-    height: wS.height,
+  const appStingo = {}
+  const contStingo = {}
+  const coverStingo = {
+    //height: wS.height,
     width: wS.width
   }
-  const contStingo = {
-    minHeight: wS.height,
-    width: wS.width
-  }
-
-
 
   return (
     <div className="App" style={appStingo}>
       <authContext.Provider value={{ state, dispatch }}>
         <sizeContext.Provider value={wS}>
-          <Navbar />
+          {!showPNav
+            ? ''
+            : <div
+              className="cover"
+              style={coverStingo}
+              onClick={(e) => {
+                //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+                if (e.pageX > 150) {
+                  setshowPNav(false)
+                }
+                //console.log(e)
+              }}>
+              <PNav setshowPNav={setshowPNav} />
+            </div>
+          }
+          <Navbar setshowPNav={setshowPNav} />
           <Container constStyle={contStingo} />
         </sizeContext.Provider>
       </authContext.Provider>

@@ -1,4 +1,3 @@
-import { useCookies } from 'react-cookie'
 import { useState } from 'react'
 import '../Styles/Login.css'
 import useAuth from '../Hooks/useAuth'
@@ -23,9 +22,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const [cookies, setCookie] = useCookies(['mkuu']);
-
-
 
 
   const handleSubmit = (e) => {
@@ -41,46 +37,17 @@ const Login = () => {
           data: { email, password }
         })
           .then((res) => {
-            //console.log(res)
+            console.log(res)
             setmessage(res.data.message)
             setloading(false)
             seterr(null)
             if (res.data.success) {
               dispatch({ type: 'login', payload: res.data.user })
-
-              const ex = new Date() + (1000 * 60 * 2)
-              //const cook = `mkuu=${JSON.stringify({ ...res.data.user, auth: true })}; expires=${ex} path=/`
-              setCookie('mkuu', JSON.stringify({ ...res.data.user, auth: true }, { path: '/' }))
-              setCookie('mku', JSON.stringify({ ...res.data.user, auth: true }, { path: '/app' }))
-              console.log(cookies)
-              //console.log(cook)
+              //const ex = new Date() + (1000 * 60 * 2)
+              //const cook = `mkuu=${JSON.stringify({ ...res.data.user, auth: true })}; expires=${ex}; path=/`
               //document.cookie = cook
-
-              //const getCookie = (cname) => {
-              //  const name = cname + "=";
-
-              //  const decodedCookie = decodeURIComponent(document.cookie);
-
-              //  const ca = decodedCookie.split(';');
-
-              //  console.log(ca)
-
-              //  //for (let i = 0; i < ca.length; i++) {
-
-              //  //  let c = ca[i];
-
-              //  //  while (c.charAt(0) === ' ') {
-              //  //    c = c.substring(1);
-              //  //  }
-              //  //  if (c.indexOf(name) === 0) {
-              //  //    return c.substring(name.length, c.length);
-              //  //  }
-              //  //}
-              //  return "";
-              //}
-
-              //localStorage.setItem('user', JSON.stringify(res.data.user[0]));
-              //navigate('/', { replace: true })
+              localStorage.setItem('user', JSON.stringify({ ...res.data.user, auth: true }));
+              navigate('/', { replace: true })
             }
           })
           .catch((err) => {

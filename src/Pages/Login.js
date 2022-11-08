@@ -1,3 +1,4 @@
+import { useCookies } from 'react-cookie'
 import { useState } from 'react'
 import '../Styles/Login.css'
 import useAuth from '../Hooks/useAuth'
@@ -22,6 +23,10 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const [cookies, setCookie] = useCookies(['mkuu']);
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -44,11 +49,12 @@ const Login = () => {
               dispatch({ type: 'login', payload: res.data.user })
 
               const ex = new Date() + (1000 * 60 * 2)
-              const cook = `mkuu=${JSON.stringify(res.data.user)}; sameSite=1; expires=${ex} path=/`
-
+              //const cook = `mkuu=${JSON.stringify({ ...res.data.user, auth: true })}; expires=${ex} path=/`
+              setCookie('mkuu', JSON.stringify({ ...res.data.user, auth: true }, { path: '/' }))
+              setCookie('mku', JSON.stringify({ ...res.data.user, auth: true }, { path: '/app' }))
+              console.log(cookies)
               //console.log(cook)
-              document.cookie = cook
-              document.cookie = cook
+              //document.cookie = cook
 
               //const getCookie = (cname) => {
               //  const name = cname + "=";
@@ -74,7 +80,7 @@ const Login = () => {
               //}
 
               //localStorage.setItem('user', JSON.stringify(res.data.user[0]));
-              navigate('/', { replace: true })
+              //navigate('/', { replace: true })
             }
           })
           .catch((err) => {

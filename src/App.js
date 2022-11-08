@@ -7,19 +7,25 @@ import WinSize from './Hooks/useSize';
 import sizeContext from './Context/sizeContext';
 import Navbar from './Components/Navbar';
 import PNav from './Components/P_Nav';
-const userInit = {
-  user_id: 0,
-  f_name: 'John',
-  l_name: '',
-  ts: 0,
-  picture: '',
-  country: 0,
-  role: '',
-  auth: false,
-
-}
+import { useCookies } from 'react-cookie'
 
 function App() {
+
+  const [cookies] = useCookies(['mkuu']);
+
+
+
+  const userInit = {
+    user_id: 0,
+    f_name: 'John',
+    l_name: '',
+    ts: 0,
+    picture: '',
+    country: 0,
+    role: '',
+    auth: false,
+
+  }
 
   const { wS } = WinSize()
 
@@ -53,44 +59,50 @@ function App() {
   };
 
 
-  const [state, dispatch] = useReducer(userReducer, userInit)
+
+
+
+  const [state, dispatch] = useReducer(userReducer, cookies.mkuu ? cookies.mkuu : cookies.mku ? cookies.mku : userInit)
+  console.log(cookies)
 
   const [showPNav, setshowPNav] = useState(false);
 
 
-  useEffect(() => {
-    const getCookie = (cname) => {
-      const name = cname + "=";
+  //useEffect(() => {
+  //  const getCookie = (cname) => {
+  //    const name = cname + "=";
 
-      const decodedCookie = decodeURIComponent(document.cookie);
+  //    const decodedCookie = decodeURIComponent(document.cookie);
 
-      const ca = decodedCookie.split(';');
+  //    const ca = decodedCookie.split(';');
 
-      for (let i = 0; i < ca.length; i++) {
+  //    for (let i = 0; i < ca.length; i++) {
 
-        let c = ca[i];
+  //      let c = ca[i];
 
-        while (c.charAt(0) === ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
+  //      while (c.charAt(0) === ' ') {
+  //        c = c.substring(1);
+  //      }
+  //      if (c.indexOf(name) === 0) {
+  //        return c.substring(name.length, c.length);
+  //      }
+  //    }
+  //    return "";
+  //  }
 
-    const cook = getCookie('mkuu')
+  //  const cook = getCookie('mkuu')
 
-    if (cook.length >= 20) {
-      dispatch({ type: 'login', payload: JSON.parse(cook) })
-    }
+  //  console.log(cook)
 
-    //handle fetch user object if front end cookie is present
-    return () => {
+  //  if (cook.length >= 10) {
+  //    dispatch({ type: 'login', payload: JSON.parse(cook) })
+  //  }
 
-    };
-  }, []);
+  //  //handle fetch user object if front end cookie is present
+  //  return () => {
+
+  //  };
+  //}, []);
 
   const appStingo = {}
   const contStingo = {}

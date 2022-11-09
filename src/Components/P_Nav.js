@@ -26,7 +26,7 @@ const PNav = ({ setshowPNav }) => {
         return (
           <>
             <PNavItem name='Home' css='P-item' pepe='/f' />
-            <PNavItem name='Sell Item' css='P-item' pepe='/app/f/postrnp' />
+            <PNavItem name='Sell Item' css='P-item' pepe='/app/f/post' />
             <PNavItem name='My Products' css='P-item' pepe='/app/f/myrnp' />
             <PNavItem name='Orders' css='P-item' pepe='/app/f/orders' />
           </>

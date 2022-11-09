@@ -33,14 +33,14 @@
 }
 @media all and (min-width: 1000px) and (max-width: 12000px) {
   .f-post-form {
-    width: 50%;
+    width: 60%;
     /*height: 40%;*/
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 1000px) {
   .f-post-form {
-    width: 60%;
+    width: 70%;
     /*height: 50%;*/
   }
 }
@@ -48,7 +48,7 @@
 @media all and (min-width: 480px) and (max-width: 768px) {
   .f-post-form {
     width: 80%;
-    /*height: 50%;*/
+    margin-top: 50px;
   }
 }
 

@@ -11,16 +11,7 @@ import PNav from './Components/P_Nav';
 function App() {
 
   const [showPNav, setshowPNav] = useState(false);
-  //const [initUser, setinitUser] = useState({
-  //  user_id: 0,
-  //  f_name: '',
-  //  l_name: '',
-  //  ts: 0,
-  //  picture: '',
-  //  country: 0,
-  //  role: '',
-  //  auth: false,
-  //});
+
   const getUser = () => {
     const ifo = JSON.parse(localStorage.getItem('user'))
     if (ifo) {
@@ -87,30 +78,6 @@ function App() {
       dispatch({ type: 'login', payload: ifo })
       setinitUser(ifo)
     }
-
-
-
-    //const getCookie = (cname) => {
-    //  const name = cname + "=";
-    //  const decodedCookie = decodeURIComponent(document.cookie);
-    //  const ca = decodedCookie.split(';');
-    //  for (let i = 0; i < ca.length; i++) {
-    //    let c = ca[i];
-    //    while (c.charAt(0) === ' ') {
-    //      c = c.substring(1);
-    //    }
-    //    if (c.indexOf(name) === 0) {
-    //      return c.substring(name.length, c.length);
-    //    }
-    //  }
-    //  return "";
-    //}
-    //const cook = getCookie('mkuu')
-    //console.log(cook)
-    //if (cook.length >= 10) {
-    //  dispatch({ type: 'login', payload: JSON.parse(cook) })
-    //  setinitUser(JSON.parse(cook))
-    //}
     return () => {
 
     };

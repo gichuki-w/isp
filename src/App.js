@@ -72,7 +72,7 @@ function App() {
   useEffect(() => {
 
     const ifo = JSON.parse(localStorage.getItem('user'))
-    console.log(ifo)
+    //console.log(ifo)
     if (ifo) {
 
       dispatch({ type: 'login', payload: ifo })

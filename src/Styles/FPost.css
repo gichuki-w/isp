@@ -6,6 +6,11 @@
   justify-content: center;
   background-color: rgb(199, 199, 199);
 }
+.f-pic {
+  width: 30%;
+  background-color: rgb(53, 219, 67);
+  border-radius: 5px;
+}
 .f-post-form {
   width: 60%;
   min-width: 320px;
@@ -15,33 +20,248 @@
   margin-top: 100px;
   margin-bottom: auto;
   display: flex;
-  flex-direction: row;
   position: relative;
   border-radius: 5px;
   box-shadow: rgba(10, 58, 6, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
+.f-post-form input[type='number']::-webkit-inner-spin-button {
+  opacity: 1;
+}
+.f-post-form p {
+  color: green;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+}
+.f-post-form label {
+  color: green;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+}
+.f-post-form option {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.f-post-form input:focus {
+  /*border-bottom: 1px solid green;*/
+  outline: 0;
+  background-color: white;
+  border: 1px solid black;
+}
+.f-post-form input:hover {
+  background-color: rgba(204, 204, 204, 0.8);
+}
+.f-post-form textarea:hover {
+  background-color: rgba(204, 204, 204, 0.8);
+}
+.f-post-form textarea:focus {
+  /*border-bottom: 1px solid green;*/
+  outline: 0;
+  background-color: white;
+  border: 1px solid black;
+}
+.f-post-details {
+  flex-grow: 1;
+  background-color: transparent;
 
-/*------------------------------------------
-  Responsive Grid Media Queries - 1280, 1024, 768, 480
-   1280-1024   - desktop (default grid)
-   1024-768    - tablet landscape
-   768-480     - tablet 
-   480-less    - phone landscape & smaller
---------------------------------------------*/
+  border-radius: 5px;
+}
+/*.p-prod-form {
+}*/
+.p-pheader {
+  text-align: center;
+  margin: 1em;
+  flex-grow: 1;
+}
+.name-cat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em;
+}
+.p-prod-name {
+  min-width: 60%;
+  flex-grow: 1;
+  margin: 0 1em 0 0;
+}
+.p-prod-form label {
+  font-size: 0.7rem;
+}
+.p-prod-form input {
+  color: black;
+  min-height: 2em;
+  font-size: 1rem;
+  padding-left: 0.7em;
+  letter-spacing: 2px;
+  background-color: rgba(226, 226, 226, 0.4);
+  border-radius: 2px;
+}
+.p-p-cat-comp {
+  min-width: 30%;
+  flex-grow: 1;
+}
+.p-p-cat-comp p {
+  font-size: 0.7rem;
+  min-width: 80px;
+}
+.p-prod-form select {
+  margin: 0;
+  padding: 0.6em;
+}
+.p-desc {
+  margin: 1em;
+}
+.p-prod-form textarea {
+  resize: none;
+  color: black;
+  min-height: 8em;
+  max-height: 10em;
+  font-size: 1rem;
+  padding-left: 0.7em;
+  letter-spacing: 2px;
+  background-color: rgba(209, 209, 209, 0.4);
+}
+.price-unit {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+.p-prod-price {
+  min-width: 60%;
+  flex-grow: 1;
+  margin: 0 1em 0 0;
+}
+.p-p-prod-price-sel p {
+  font-size: 0.7rem;
+}
+.p-p-specs {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+  flex-wrap: wrap;
+}
+.p-p-specs input {
+  max-width: 3em;
+}
+/*.p-p-weight {
+
+}
+.p-p-quantity {
+
+}
+.p-p-length {
+
+}
+.p-p-height {
+
+}
+.p-p-color {
+}*/
+.p-p-tupicha {
+  margin: 1em;
+  position: relative;
+}
+.style-tupicha {
+  position: relative;
+
+  min-height: 2em;
+  background-color: rgba(0, 128, 0, 0.15);
+  justify-content: center;
+  align-items: center;
+}
+.style-tupicha p {
+  position: absolute;
+  font-size: 0.7rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.style-tupicha .p-p-p-bg {
+  position: absolute;
+  left: 60%;
+  width: 15px;
+  height: 15px;
+  margin-right: 1em;
+  background: url('./image.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.style-tupicha input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  opacity: 0;
+}
+.style-tupicha:hover {
+  background-color: rgba(0, 128, 0, 0.25);
+}
+.chosen-images {
+  margin-top: 1em;
+  min-height: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.chosen-images .user_pic {
+  /*border: 1px solid blue;*/
+  height: 5em;
+  width: 5em;
+  display: flex;
+}
+
+.user_pic .user_pic_name {
+  font-size: 0.8rem;
+  color: black;
+}
+.p-p-transport {
+  margin: 1em;
+}
+.p-p-transport p {
+  font-size: 0.7rem;
+}
+.p-p-transport select {
+  width: 100%;
+}
+.p-p--p-btn {
+  border: 1px solid green;
+  width: 40%;
+  align-self: flex-end;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 2px;
+  color: green;
+}
+.p-p--p-btn:hover {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
+.util_flex {
+  display: flex;
+  flex-direction: column;
+}
+.invalid_dt {
+  align-self: center;
+  color: red;
+  margin-bottom: 0.5em;
+}
+
 @media all and (min-width: 1200px) and (max-width: 5000px) {
 }
 @media all and (min-width: 1000px) and (max-width: 12000px) {
   .f-post-form {
     width: 60%;
-    /*height: 40%;*/
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 1000px) {
   .f-post-form {
     width: 70%;
-    /*height: 50%;*/
   }
 }
 
@@ -56,20 +276,13 @@
   .f-post-form {
     width: 100%;
     margin-top: 0px;
-    max-height: 700px;
     flex-direction: column;
-    position: relative;
     margin-bottom: 0;
     align-items: center;
     box-shadow: rgba(10, 58, 6, 0.13) 0px 10px 20px,
       rgba(0, 0, 0, 0.2) 0px 4px 4px;
   }
-  /*.post-form {
-    width: 90%;
-    display: flex;
-    min-height: 500px;
-    flex-direction: column;
-    justify-content: space-around;
-    border-radius: 10px;
-  }*/
+  .f-post-details {
+    width: 97%;
+  }
 }

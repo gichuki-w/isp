@@ -11,6 +11,7 @@ import PNav from './Components/P_Nav';
 function App() {
 
   const [showPNav, setshowPNav] = useState(false);
+  const [showPostProd, setshowPostProd] = useState(false);
 
   const getUser = () => {
     const ifo = JSON.parse(localStorage.getItem('user'))
@@ -90,25 +91,32 @@ function App() {
     //height: wS.height,
     width: wS.width
   }
+  const phoneNavigation = () => {
+    //setshowPostProd(false)
+
+    return (
+      <div
+        className="cover"
+        style={coverStingo}
+        onClick={(e) => {
+          //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+          if (e.pageX > 150) {
+            setshowPNav(false)
+          }
+          //console.log(e)
+        }}>
+        <PNav setshowPNav={setshowPNav} />
+      </div>
+    )
+  }
 
   return (
     <div className="App" style={appStingo}>
       <authContext.Provider value={{ state, dispatch }}>
         <sizeContext.Provider value={wS}>
-          {!showPNav
-            ? ''
-            : <div
-              className="cover"
-              style={coverStingo}
-              onClick={(e) => {
-                //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
-                if (e.pageX > 150) {
-                  setshowPNav(false)
-                }
-                //console.log(e)
-              }}>
-              <PNav setshowPNav={setshowPNav} />
-            </div>
+          {showPNav
+            ? phoneNavigation()
+            : ''
           }
           <Navbar setshowPNav={setshowPNav} />
           <Container constStyle={contStingo} />

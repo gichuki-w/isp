@@ -42,11 +42,23 @@ const PostProductF = () => {
   const [file, setfile] = useState(null);
   const [tupicha, settupicha] = useState([]);
 
+  const [onyesha, setonyesha] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
     //data validations
 
+    //name && AnimationEffect.length
+    //  ? category && category !== 0
+    //    ? description && description.length
+    //      //? '' continue checking
+    //      : ''
+    //    : ''
+    //  : ''
+
+
+    // axios
 
 
     console.log('Submitting')
@@ -95,26 +107,34 @@ const PostProductF = () => {
     settranspo(e.target.value)
   }
   const handleFileChange = (e) => {
-    //reader.readAsDataURL(e.target.files[0])
+
     setfile(e.target.files)
+    //e.target.files.id = 1
+    //console.log(e.target.files)
+
     Object.entries(e.target.files)
       .map(([key, value], i) => {
         const reader = new FileReader()
         reader.onload = (e) => {
           //console.log(e)
+          setonyesha(true)
           settupicha((prev) => [...prev, {
             loaded: e.total,
-            result: e.target.result
+            result: e.target.result,
+            key: key,
+            value: value
           }])
+          //console.log(key)
         }
         reader.readAsDataURL(value)
         //console.log(reader)
       })
     settupicha([])
+    setonyesha(false)
 
 
   }
-
+  //console.log(tupicha)
 
   return (
     <div className="f-post-details util_flex">
@@ -285,20 +305,25 @@ const PostProductF = () => {
             //ref={fileRef}
             />
           </div>
-          {tupicha.length >= 1
-            ? <div className="chosen-images">
-              {tupicha.map((p) => {
-                return (
-                  <div key={p.loaded} className='user_pic'>
-                    <img
-                      src={p.result}
-                      alt='pic' />
+          <div
+            className="chosen-images"
+            style={{
+              visibility: onyesha ? 'visible' : 'hidden',
+              opacity: onyesha ? 1 : 0
+            }}>
+            {tupicha.map((p) => {
+              return (
+                <div key={p.loaded} className='user_pic'>
+                  <img
+                    src={p.result}
+                    alt='pic' />
+                  <div className="user_pic_name">
+                    {p.value.name}
                   </div>
-                )
-              })}
-            </div>
-            : ''
-          }
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         <div className="p-p-transport util_flex">
